@@ -8,15 +8,7 @@ if [ $? -eq 0 ] ; then
     if [ $? -eq 0 ]; then
     	echo "User added to the sudo group complete"
     fi
- 
 
-    #allow ssh
-    ufw allow OpenSSH
-
-    #enable ufw
-    ufw allow OpenSSH
-    
-    echo "$(ufw status)"
     
     #resync ssh keys
     rsync --archive --chown=${USER_NAME}:${USER_NAME} ~/.ssh /home/${USER_NAME}
